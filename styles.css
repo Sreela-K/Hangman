@@ -98,7 +98,10 @@ background-image: linear-gradient(to right, #243949 0%, #517fa4 100%);
     width: calc(100% / 9 - 5px); 
     padding: 7px;
 }
-
+.keyboard button[disabled]{
+    opacity: 0.6;
+    pointer-events:none;
+}
 :where(.game-modal, .keyboard) button:hover {
     background: #3d4d56;
 }
@@ -110,10 +113,18 @@ background-image: linear-gradient(to right, #243949 0%, #517fa4 100%);
     width: 100%;
     height: 100%;
     background: rgba(0,0,0,0.6);
-    display: none;
+    opacity: 0;
+    pointer-events: none;
+    z-index:999 ;
+    display: flex;
     align-items: center;
     justify-content: center;
+    transition: opacity 0.4s ease;
    
+}
+.game-modal.show{
+    opacity: 1;
+    pointer-events: auto;
 }
 
 .game-modal .content{
